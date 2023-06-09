@@ -1,0 +1,5 @@
+{
+  "apiUrl": "https://jsonplaceholder.typicode.com",
+  "env": "TEST",
+  "production": false
+}
