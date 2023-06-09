@@ -15,17 +15,12 @@ class AlbumCard extends StatelessWidget {
     final thumbSize = (mq - (16 * 2)) / 3;
     return Row(
       children: [
-        Container(
+        Image.network(
+          album.photos.first.thumbnailUrl,
           width: thumbSize,
           height: thumbSize,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: NetworkImage(
-                album.photos.first.thumbnailUrl,
-              ),
-            ),
-          ),
         ),
+        const SizedBox(width: 12),
         Expanded(
           child: Text(album.title),
         ),

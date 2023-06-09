@@ -12,8 +12,10 @@ class AppColors {
   static const Color purpleDiff = Color(0xFF8A00C2);
 
   static const purpleBLue = LinearGradient(
-  // begin: Alignment.centerLeft,
-  // end: Alignment.centerRight,
-  stops: [0.10, 0.90],
-  colors: <Color>[purpleDiff, blueDiff],);
+    stops: [0.10, 0.90],
+    colors: <Color>[
+      purpleDiff,
+      blueDiff,
+    ],
+  );
 }

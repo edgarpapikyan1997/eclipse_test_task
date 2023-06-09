@@ -1,3 +1,4 @@
+import 'package:eds_test/constants/app_words.dart';
 import 'package:eds_test/presentation/main_page.dart';
 import 'package:flutter/material.dart';
 
@@ -11,11 +12,10 @@ Future<void> main() async {
 Future<void> run({Flavor env = Flavor.DEV}) async {
   WidgetsFlutterBinding.ensureInitialized();
   registerGetIt(env);
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
-
-
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Test Task Application',
+      title: AppWords.appTitle,
       home: MainPage(),
     );
   }

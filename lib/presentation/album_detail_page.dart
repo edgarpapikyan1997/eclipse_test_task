@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 class AlbumDetailPage extends StatelessWidget {
   final AlbumModelWithPhotos album;
+
   const AlbumDetailPage({
     required this.album,
     Key? key,
@@ -28,10 +29,8 @@ class AlbumDetailPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: [
-                  Image(
-                    image: NetworkImage(
-                      album.photos[index].url,
-                    ),
+                  Image.network(
+                    album.photos[index].url,
                   ),
                   const SizedBox(
                     height: 8,

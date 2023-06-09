@@ -1,3 +1,4 @@
+import 'package:eds_test/extensions/widget_extension.dart';
 import 'package:flutter/material.dart';
 
 import '../data/models/post_model.dart';
@@ -32,12 +33,9 @@ class _AllPostsPageState extends State<AllPostsPage> {
         titleTextStyle: AppTextStyles.title,
         backgroundColor: AppColors.gray,
       ),
-      body: ListView.separated(
-        padding: const EdgeInsets.all(16),
+      body: ListView.builder(
+        padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
         itemCount: widget.posts.length,
-        separatorBuilder: (_, __) => const SizedBox(
-          height: 16,
-        ),
         itemBuilder: (context, index) {
           final post = widget.posts[index];
           return GestureDetector(
@@ -54,7 +52,7 @@ class _AllPostsPageState extends State<AllPostsPage> {
             child: PostCard(
               post: post,
             ),
-          );
+          ).paddingOnly(bottom: 16);
         },
       ),
     );

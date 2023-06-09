@@ -1,3 +1,4 @@
+import 'package:eds_test/extensions/widget_extension.dart';
 import 'package:flutter/material.dart';
 
 import '../data/models/album_model.dart';
@@ -29,12 +30,17 @@ class AllAlbumsPage extends StatelessWidget {
       ),
       body: ListView.builder(
         itemCount: albums.length,
+        padding: const EdgeInsets.only(
+          right: 16,
+          left: 16,
+          top: 16,
+        ),
         itemBuilder: (context, index) {
           final album = albums[index];
           return GestureDetector(
             child: AlbumCard(
               album: album,
-            ),
+            ).paddingOnly(bottom: 16),
             onTap: () {
               Navigator.push<void>(
                 context,

@@ -30,4 +30,13 @@ extension PaddingExtension on Widget {
       child: this,
     );
   }
+
+  Widget paddingAll([double value = 16]) {
+    return Padding(
+      padding: EdgeInsets.all(
+        value,
+      ),
+      child: this,
+    );
+  }
 }
