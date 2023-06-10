@@ -66,60 +66,77 @@ class _PostDetailPageState extends State<PostDetailPage> with AfterLayoutMixin {
         title: Text(widget.post.title),
         centerTitle: true,
         titleTextStyle: AppTextStyles.title,
-        backgroundColor: AppColors.gray,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            boxShadow: [
+              BoxShadow(color: Colors.purple, blurRadius: 20),
+              BoxShadow(color: AppColors.blueDiff, blurRadius: 20)
+            ],
+            gradient: AppColors.purpleBLue,
+          ),
+        ),
+        // backgroundColor: AppColors.green,
       ),
       body: Observer(
         builder: (_) => _loadingState.isLoading
             ? const Loader()
-            : CustomScrollView(
-                slivers: [
-                  SliverToBoxAdapter(
-                    child: Column(
-                      children: [
-                        Text(
-                          widget.post.title,
-                          style: AppTextStyles.title.copyWith(
-                            color: Colors.black,
+            : DecoratedBox(
+                decoration: const BoxDecoration(gradient: AppColors.purpleBLue),
+                child: CustomScrollView(
+                  slivers: [
+                    SliverToBoxAdapter(
+                      child: Column(
+                        children: [
+                          const SizedBox(
+                            height: 20,
                           ),
-                          textAlign: TextAlign.start,
-                        ),
-                        const SizedBox(height: 7),
-                        Text(
-                          widget.post.body,
-                          style: AppTextStyles.bodyTextStyle.copyWith(
-                            color: Colors.black,
+                          Text(
+                            widget.post.title,
+                            style: AppTextStyles.title.copyWith(
+                              color: Colors.white,
+                            ),
+                            textAlign: TextAlign.start,
                           ),
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        const Text('${AppWords.comments}:'),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                      ],
+                          const SizedBox(height: 7),
+                          Text(
+                            widget.post.body,
+                            style: AppTextStyles.bodyTextStyle.copyWith(
+                              color: Colors.white,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          const Text('${AppWords.comments}:'),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                      (_, index) {
-                        final comment = _postDetailState.comments[index];
-                        return CommentCard(
-                          username: comment.name,
-                          comment: comment.body,
-                          email: comment.email,
-                        );
-                      },
-                      childCount: _postDetailState.comments.length,
+                    SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        (_, index) {
+                          final comment = _postDetailState.comments[index];
+                          return CommentCard(
+                            username: comment.name,
+                            comment: comment.body,
+                            email: comment.email,
+                          );
+                        },
+                        childCount: _postDetailState.comments.length,
+                      ),
                     ),
-                  ),
-                ],
-              ).paddingAll(),
+                  ],
+                ),
+              ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.purpleDiff,
         child: const Icon(
           Icons.add,
           size: 20,
+          color: AppColors.white,
         ),
         onPressed: () => _displayDialog(context),
       ),
@@ -131,6 +148,9 @@ class _PostDetailPageState extends State<PostDetailPage> with AfterLayoutMixin {
       context: context,
       builder: (context) {
         return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25),
+          ),
           insetPadding: EdgeInsets.zero,
           scrollable: true,
           title: const Text(AppWords.addNewComment),
@@ -168,7 +188,8 @@ class _PostDetailPageState extends State<PostDetailPage> with AfterLayoutMixin {
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text(AppWords.submit),
+              child: const Text(AppWords.submit,
+                  style: TextStyle(color: AppColors.purpleDiff)),
               onPressed: () {
                 ApiService.sendComment(
                   name: nameController.text,

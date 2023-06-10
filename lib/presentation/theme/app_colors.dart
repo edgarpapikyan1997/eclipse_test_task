@@ -18,4 +18,13 @@ class AppColors {
       blueDiff,
     ],
   );
+
+  static const purpleBlueDiff = LinearGradient(
+    stops: [0.10, 0.90],
+    colors: <Color>[
+      Colors.deepPurpleAccent,
+      blueDiff,
+    ],
+  );
+
 }

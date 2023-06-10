@@ -26,34 +26,53 @@ class _AllPostsPageState extends State<AllPostsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
-        title: Text(widget.user.username),
-        centerTitle: true,
+          title: Text(widget.user.username),
+      centerTitle: true,
         titleTextStyle: AppTextStyles.title,
-        backgroundColor: AppColors.gray,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            boxShadow: [
+              BoxShadow(color: Colors.purple, blurRadius: 20),
+              BoxShadow(color: AppColors.blueDiff, blurRadius: 20)
+            ],
+            gradient: AppColors.purpleBLue,
+          ),
+        ),
+        // backgroundColor: AppColors.green,
       ),
-      body: ListView.builder(
-        padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
-        itemCount: widget.posts.length,
-        itemBuilder: (context, index) {
-          final post = widget.posts[index];
-          return GestureDetector(
-            onTap: () {
-              Navigator.push<void>(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => PostDetailPage(
-                    post: post,
+      // appBar: AppBar(
+      //   centerTitle: true,
+      //   titleTextStyle: AppTextStyles.title,
+      //   backgroundColor: Colors.transparent,
+      // ),
+      body: DecoratedBox(
+        decoration: const BoxDecoration(
+          gradient: AppColors.purpleBLue
+        ),
+        child: ListView.builder(
+          padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
+          itemCount: widget.posts.length,
+          itemBuilder: (context, index) {
+            final post = widget.posts[index];
+            return GestureDetector(
+              onTap: () {
+                Navigator.push<void>(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PostDetailPage(
+                      post: post,
+                    ),
                   ),
-                ),
-              );
-            },
-            child: PostCard(
-              post: post,
-            ),
-          ).paddingOnly(bottom: 16);
-        },
+                );
+              },
+              child: PostCard(
+                post: post,
+              ),
+            ).paddingOnly(bottom: 16);
+          },
+        ),
       ),
     );
   }

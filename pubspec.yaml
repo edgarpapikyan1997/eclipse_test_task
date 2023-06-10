@@ -11,25 +11,24 @@ environment:
 dependencies:
   carousel_slider: ^4.0.0
   cupertino_icons: ^1.0.2
+  dio: ^5.2.0
+  flutter:
+    sdk: flutter
+  flutter_mobx: ^2.0.6+5
+  get_it: ^7.6.0
   # Classes and helper functions that support JSON code generation
   # via the `json_serializable` package.
   json_annotation: ^4.6.0
   mobx: ^2.1.3
-  flutter_mobx: ^2.0.6+5
-  get_it: ^7.6.0
-  dio: ^5.2.0
-  flutter:
-    sdk: flutter
-  http: ^0.13.4
-  
+
 
 dev_dependencies:
-  flutter_lints: ^1.0.0
   build_runner: ^2.4.4
-  json_serializable: ^6.7.0
-  mobx_codegen: ^2.1.1
+  flutter_lints: ^1.0.0
   flutter_test:
     sdk: flutter
+  json_serializable: ^6.7.0
+  mobx_codegen: ^2.1.1
 
 flutter:
   uses-material-design: true
