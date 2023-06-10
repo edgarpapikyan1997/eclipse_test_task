@@ -42,11 +42,6 @@ class _AllPostsPageState extends State<AllPostsPage> {
         ),
         // backgroundColor: AppColors.green,
       ),
-      // appBar: AppBar(
-      //   centerTitle: true,
-      //   titleTextStyle: AppTextStyles.title,
-      //   backgroundColor: Colors.transparent,
-      // ),
       body: DecoratedBox(
         decoration: const BoxDecoration(
           gradient: AppColors.purpleBLue
