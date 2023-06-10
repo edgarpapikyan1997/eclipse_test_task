@@ -14,7 +14,17 @@ class PostCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.blue,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          gradient: AppColors.purpleBlueDiff,
+          // color: AppColors.blueDiff.withOpacity(0.9),
+          boxShadow: const [
+               BoxShadow(
+                color: AppColors.white,
+                spreadRadius: 1,
+                offset: Offset(0, 2),
+                blurRadius: 3,),
+          ],),
       padding: const EdgeInsets.all(10),
       child: Column(
         mainAxisSize: MainAxisSize.min,

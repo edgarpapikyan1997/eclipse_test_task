@@ -16,31 +16,46 @@ class AlbumDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
-      appBar: AppBar(
+    appBar: AppBar(
         title: Text(album.title),
+        centerTitle: true,
         titleTextStyle: AppTextStyles.title,
-        backgroundColor: AppColors.gray,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            boxShadow: [
+              BoxShadow(color: Colors.purple, blurRadius: 20),
+              BoxShadow(color: AppColors.blueDiff, blurRadius: 20)
+            ],
+            gradient: AppColors.purpleBLue,
+          ),
+        ),
+        // backgroundColor: AppColors.green,
       ),
-      body: Center(
-        child: CarouselSlider.builder(
-          itemCount: album.photos.length,
-          itemBuilder: (context, index, _) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                children: [
-                  Image.network(
-                    album.photos[index].url,
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Text(album.photos[index].title)
-                ],
-              ),
-            );
-          },
-          options: CarouselOptions(height: 400),
+      body: DecoratedBox(
+        decoration: const BoxDecoration(
+          gradient: AppColors.purpleBLue,
+        ),
+        child: Center(
+          child: CarouselSlider.builder(
+            itemCount: album.photos.length,
+            itemBuilder: (context, index, _) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  children: [
+                    Image.network(
+                      album.photos[index].url,
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Text(album.photos[index].title),
+                  ],
+                ),
+              );
+            },
+            options: CarouselOptions(height: 400),
+          ),
         ),
       ),
     );

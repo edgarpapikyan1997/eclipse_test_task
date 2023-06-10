@@ -11,9 +11,6 @@ analyzer:
     strict-raw-types: true
   plugins:
     - dart_code_metrics
-  strong-mode:
-    implicit-casts: false
-    implicit-dynamic: true
   errors:
     avoid_dynamic_calls: error
     avoid_empty_else: error

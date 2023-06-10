@@ -26,33 +26,46 @@ class AllAlbumsPage extends StatelessWidget {
         title: Text(user.username),
         centerTitle: true,
         titleTextStyle: AppTextStyles.title,
-        backgroundColor: AppColors.gray,
-      ),
-      body: ListView.builder(
-        itemCount: albums.length,
-        padding: const EdgeInsets.only(
-          right: 16,
-          left: 16,
-          top: 16,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            boxShadow: [
+              BoxShadow(color: Colors.purple, blurRadius: 20),
+              BoxShadow(color: AppColors.blueDiff, blurRadius: 20)
+            ],
+            gradient: AppColors.purpleBLue,
+          ),
         ),
-        itemBuilder: (context, index) {
-          final album = albums[index];
-          return GestureDetector(
-            child: AlbumCard(
-              album: album,
-            ).paddingOnly(bottom: 16),
-            onTap: () {
-              Navigator.push<void>(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AlbumDetailPage(
-                    album: album,
+      ),
+      body: DecoratedBox(
+        decoration: const BoxDecoration(
+          gradient: AppColors.purpleBLue,
+        ),
+        child: ListView.builder(
+          itemCount: albums.length,
+          padding: const EdgeInsets.only(
+            right: 16,
+            left: 16,
+            top: 16,
+          ),
+          itemBuilder: (context, index) {
+            final album = albums[index];
+            return GestureDetector(
+              child: AlbumCard(
+                album: album,
+              ).paddingOnly(bottom: 16),
+              onTap: () {
+                Navigator.push<void>(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AlbumDetailPage(
+                      album: album,
+                    ),
                   ),
-                ),
-              );
-            },
-          );
-        },
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }
