@@ -1,6 +1,5 @@
 import 'package:eds_test/extensions/widget_extension.dart';
 import 'package:flutter/material.dart';
-
 import '../data/models/post_model.dart';
 import '../data/models/user_model.dart';
 import 'post_detail_page.dart';
