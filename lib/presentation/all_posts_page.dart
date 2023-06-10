@@ -39,7 +39,6 @@ class _AllPostsPageState extends State<AllPostsPage> {
             gradient: AppColors.purpleBLue,
           ),
         ),
-        // backgroundColor: AppColors.green,
       ),
       body: DecoratedBox(
         decoration: const BoxDecoration(
